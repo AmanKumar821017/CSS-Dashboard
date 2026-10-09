@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Dashboard Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <div class="app__brand"><span class="app__brand-mark" aria-hidden="true"></span> Pulse</div>
+      <button class="btn" id="theme-toggle" type="button" aria-label="Toggle theme">Theme</button>
+      <button class="btn btn--primary" type="button">New report</button>
+    </header>
+
+    <nav class="app__nav" aria-label="Primary">
+      <ul>
+        <li><a class="nav-link" href="#" aria-current="page">Overview</a></li>
+        <li><a class="nav-link" href="#">Analytics</a></li>
+        <li><a class="nav-link" href="#">Customers</a></li>
+        <li><a class="nav-link" href="#">Billing</a></li>
+        <li><a class="nav-link" href="#">Settings</a></li>
+      </ul>
+    </nav>
+
+    <main class="app__main">
+      <div class="page-head">
+        <div>
+          <h1>Overview</h1>
+          <p>Last 30 days across all workspaces</p>
+        </div>
+        <span class="badge">Live</span>
+      </div>
+
+      <section class="dashboard" aria-label="Dashboard">
+        <div class="kpis">
+          <article class="card"><h2 class="card__title">Revenue</h2><p class="card__value">$48.2k</p><p class="card__delta card__delta--up">▲ 12.4%</p></article>
+          <article class="card"><h2 class="card__title">Users</h2><p class="card__value">9,310</p><p class="card__delta card__delta--up">▲ 4.1%</p></article>
+          <article class="card"><h2 class="card__title">Churn</h2><p class="card__value">2.3%</p><p class="card__delta card__delta--down">▼ 0.4%</p></article>
+          <article class="card"><h2 class="card__title">Latency</h2><p class="card__value">182ms</p><p class="card__delta card__delta--up">▲ 9%</p></article>
+        </div>
+
+        <article class="card span-2">
+          <h2 class="card__title">Weekly traffic</h2>
+          <div class="chart" role="img" aria-label="Bar chart of weekly traffic">
+            <div class="chart__bar" style="height:40%"></div><div class="chart__bar" style="height:62%"></div>
+            <div class="chart__bar" style="height:48%"></div><div class="chart__bar" style="height:80%"></div>
+            <div class="chart__bar" style="height:70%"></div><div class="chart__bar" style="height:92%"></div>
+            <div class="chart__bar" style="height:58%"></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2 class="card__title">Top sources</h2>
+          <p>Organic search<br>Direct<br>Referral<br>Social</p>
+        </article>
+
+        <article class="card">
+          <h2 class="card__title">Goals</h2>
+          <p>Q4 target: 78% complete. A deliberately_long_unbroken_string_to_test_wrapping_behaviour_on_320px_screens.</p>
+        </article>
+
+        <article class="card span-2">
+          <h2 class="card__title">Recent orders</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Order</th><th>Customer</th><th>Status</th><th>Total</th></tr></thead>
+              <tbody>
+                <tr><td>#1042</td><td>Aarav Mehta</td><td><span class="badge">Paid</span></td><td>$120.00</td></tr>
+                <tr><td>#1041</td><td>Diya Sharma</td><td><span class="badge">Pending</span></td><td>$86.50</td></tr>
+                <tr><td>#1040</td><td>Kabir Singh</td><td><span class="badge">Paid</span></td><td>$342.10</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Mobile">
+      <a href="#" aria-current="page">Overview</a><a href="#">Analytics</a><a href="#">Customers</a><a href="#">Settings</a>
+    </nav>
+  </div>
+
+  <script>
+    document.getElementById('theme-toggle').addEventListener('click', function () {
+      var r = document.documentElement;
+      var dark = r.getAttribute('data-theme') === 'dark' ||
+        (!r.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
+      r.setAttribute('data-theme', dark ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>
